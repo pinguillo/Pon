@@ -19,7 +19,7 @@ public:
 	Shader& operator = (const Shader&) = delete;
 	~Shader();
 
-	void Bind() { glUseProgram(shaderProgramId); }
+	void Bind();
 
 	void setInt(const std::string& name, int value) {
 		glUniform1i(glGetUniformLocation(shaderProgramId, name.c_str()), value);

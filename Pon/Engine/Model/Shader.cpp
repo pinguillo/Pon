@@ -27,6 +27,11 @@ Shader::~Shader()
 	glDeleteProgram(shaderProgramId);
 }
 
+void Shader::Bind()
+{
+	glUseProgram(shaderProgramId);
+}
+
 void Shader::attach(const char* path, const ShaderType& type)
 {
 	std::string code;
@@ -84,5 +89,9 @@ void Shader::link()
 		glGetShaderInfoLog(shaderProgramId, logLength, NULL, &errorMessage[0]);
 		PIN_WARNING("Shader -> " << &errorMessage[0]);
 		return;
+	}
+
+	for (ui32 i = 0; i < 2; i++) {
+		glDeleteShader(attachedShaders[i]);
 	}
 }

@@ -81,7 +81,9 @@ public:
 	}
 
 	void Draw(glm::mat4& proj, glm::mat4& view) {
+		
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
 		shader->Bind();
 
 		UpdateTransform();
@@ -90,9 +92,15 @@ public:
 		shader->setMat4("model", transformMatrix);
 
 		glBindVertexArray(vertexArrayID);
+		glBindBuffer(GL_ARRAY_BUFFER, vertexBufferID);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBufferID);
+		
 		//glDrawArrays(GL_TRIANGLES, 0, ind.size());
 		glDrawElements(GL_TRIANGLES, ind.size(), GL_UNSIGNED_INT, 0);
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
 	}
 

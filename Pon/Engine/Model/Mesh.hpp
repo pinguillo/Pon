@@ -14,10 +14,10 @@ public:
 	~Mesh(){}
 
 	void Draw(glm::mat4& transformMatrix) {
+		
 		mat.shader->Bind();
 
 		mat.shader->setMat4("transform", transformMatrix);
-
 		mat.shader->setFloat("material.shininess", mat.shininess);
 
 		glActiveTexture(GL_TEXTURE0);
@@ -28,8 +28,14 @@ public:
 		//glBindTexture(GL_TEXTURE_2D, depthMapID);
 
 		glBindVertexArray(vertexArrayID);
+		glBindBuffer(GL_ARRAY_BUFFER, vertexBufferID);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBufferID);
+
 		//glDrawArrays(GL_TRIANGLES, 0, vertexList.size());
 		glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+		
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
 	}
 

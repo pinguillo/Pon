@@ -1,5 +1,5 @@
 #pragma once
-#include "../Types/3D.hpp"
+#include "../Types/Math.hpp"
 #include "Material.hpp"
 
 #include <Glad\glad\glad.h>
@@ -15,8 +15,6 @@ public:
 
 	void Draw(glm::mat4& transformMatrix) {
 		
-		mat.shader->Bind();
-
 		mat.shader->setMat4("transform", transformMatrix);
 		mat.shader->setFloat("material.shininess", mat.shininess);
 

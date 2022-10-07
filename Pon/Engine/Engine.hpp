@@ -12,6 +12,7 @@ class Input;
 class GLFWwindow;
 class MeshedObject;
 class Camera;
+class ResourcePack;
 
 class Engine {
 public:
@@ -28,7 +29,7 @@ private:
 	Window* windowClass;
 	GLFWwindow* window;
 	Input* input;
-
+	ResourcePack* resourcePack;
 
 	std::chrono::high_resolution_clock::time_point previousTime;
 };

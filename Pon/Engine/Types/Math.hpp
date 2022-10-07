@@ -2,6 +2,10 @@
 #include <glm\glm.hpp>
 #include <vector>
 
+typedef float f32;
+typedef int i32;
+typedef unsigned int ui32;
+
 struct Vec3 {
 	Vec3() {}
 	Vec3(float x, float y, float z) : x(x), y(y), z(z) {}

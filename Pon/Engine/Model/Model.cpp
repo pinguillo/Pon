@@ -41,6 +41,7 @@ void Model::Draw(glm::mat4& proj, glm::mat4& view)
 	
 	for (Mesh& m : meshes)
 	{
+		m.mat.shader->Bind();
 		m.mat.shader->setMat4("projection", proj);
 		m.mat.shader->setMat4("view", view);
 		m.Draw(transformMatrix);
@@ -121,11 +122,10 @@ void Model::Loadmdl(const std::string& filePath)
 
 	m.vertexList = mdl.vertex;
 	m.indices = mdl.indices;
-	m.mat = Material();
+	//m.mat = Material();
 
 	m.CreateGL();
 	meshes.push_back(m);
-	//CreateGL();
 
 	UpdateTransform();
 }

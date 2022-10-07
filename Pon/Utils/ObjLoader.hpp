@@ -1,6 +1,6 @@
 #pragma once
 #include "../Engine/Log.hpp"
-#include "../Engine/Types/3D.hpp"
+#include "../Engine/Types/Math.hpp"
 #include "Utils.hpp"
 
 #include <fstream>
@@ -23,19 +23,6 @@ namespace std {
 			return seed;
 		}
 	};
-}
-
-struct RawMeshData {
-	RawMeshData() : positions(1), normals(1), textureCoords(1) {}
-	// dummy value at 0. removes the need for subtracting 1 from obj file
-	std::vector<glm::vec3> positions;
-	std::vector<glm::vec3> normals;
-	std::vector<glm::vec2> textureCoords;
-	std::vector<glm::ivec3> faceIndices;
-};
-
-constexpr ui32 packCharsToIntKey(char a, char b) {
-	return (static_cast<ui32>(a) << 8) | static_cast<ui32>(b);
 }
 
 bool KeyCheck(std::string& line, const char* text)
@@ -121,9 +108,9 @@ static ModelVectors loadOBJ(const char* filePath) {
 					&v4, &vt4, &n4
 				);
 				
-				meshData.indices.push_back(v1 - 1);
-				meshData.indices.push_back(v2 - 1);
-				meshData.indices.push_back(v3 - 1);
+				meshData.indices.push_back(v1);
+				meshData.indices.push_back(v2);
+				meshData.indices.push_back(v3);
 				if (found > 9)
 				{
 					meshData.indices.push_back(v4);

@@ -63,6 +63,15 @@
     <ClCompile Include="Engine\Model\Shader.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\ResourcePack.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Model\Sprite.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Model\Texture.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Window.hpp">
@@ -74,7 +83,7 @@
     <ClInclude Include="Engine\Input.hpp">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Types\3D.hpp">
+    <ClInclude Include="Engine\Types\Math.hpp">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Log.hpp">
@@ -167,6 +176,9 @@
     <ClInclude Include="Engine\ResourcePack.hpp">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\Model\Sprite.hpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\shader.vert" />
@@ -181,5 +193,7 @@
     <None Include="Assets\Shaders\depthShader.frag" />
     <None Include="Assets\Shaders\debug.vert" />
     <None Include="Assets\Shaders\debug.frag" />
+    <None Include="Assets\Shaders\sprite.vert" />
+    <None Include="Assets\Shaders\sprite.frag" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,5 @@
 #pragma once
-#include "../Types/varTypes.hpp"
-#include "../Types/3D.hpp"
+#include "../Types/Math.hpp"
 
 #include <glm\glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

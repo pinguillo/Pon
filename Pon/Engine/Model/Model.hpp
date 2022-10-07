@@ -1,6 +1,5 @@
 #pragma once
-#include "Types\varTypes.hpp"
-#include "Types\3D.hpp"
+#include "Types\Math.hpp"
 #include "Mesh.hpp"
 
 #include <string>
@@ -9,7 +8,7 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm\glm.hpp>
 #include <glm\gtc\matrix_transform.hpp>
-#include <glm\gtc\type_ptr.hpp>
+#include <glm\gtc\type_ptr.hpp>//Some is not needed
 #include <glm\gtx\hash.hpp>
 
 class Model

@@ -1,13 +1,16 @@
 #include "../Utils/ImGui.hpp"
+#include "../Utils/Utils.hpp"
 
 #include "Engine.hpp"
-
 #include "Window.hpp"
+
 #include "Model/Model.hpp"
+#include "Model/Sprite.hpp"
 #include "debugMesh.hpp"
 #include "Components\Camera.hpp"
 
 #include "Phys\AABB.hpp"
+#include "ResourcePack.hpp"
 
 #include "Input.hpp"
 
@@ -18,6 +21,7 @@
 #include <glm\glm.hpp>
 #include <glm\gtc\matrix_transform.hpp>
 #include <glm\gtc\type_ptr.hpp>
+
 
 
 Engine::Engine()
@@ -67,6 +71,8 @@ void Engine::Run()
 	Model mmm = Model();
 	mmm.Loadmdl("Assets/Models/cor.obj");
 	//mmm.setScale({ 0.1f, 0.1f, 0.1f });
+
+	Sprite spr = Sprite("Assets/Textures/homete.png");
 
 	ImGuiLayer gui = ImGuiLayer(window);
 	bool pause = true;
@@ -129,13 +135,14 @@ void Engine::Run()
 		glm::mat4 vm = cam->GetViewMatrix();
 
 
+		//mmm.Draw(projection, vm);
 		
 		debugBox.Draw(projection, vm);
 
 		debugBox2.Draw(projection, vm);
 
-		mmm.Draw(projection, vm);
-		
+		spr.Draw(projection, vm);
+
 
 		float v3[] = { directional.x, directional.y, directional.z };
 		float sb3[] = { ab.colliders[1].position.x, ab.colliders[1].position.y, ab.colliders[1].position.z };

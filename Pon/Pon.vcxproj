@@ -92,6 +92,9 @@
     <ClCompile Include="Engine\Model\Model.cpp" />
     <ClCompile Include="Engine\Model\Shader.cpp" />
     <ClCompile Include="Engine\Model\Shader.hpp" />
+    <ClCompile Include="Engine\Model\Sprite.cpp" />
+    <ClCompile Include="Engine\Model\Texture.cpp" />
+    <ClCompile Include="Engine\ResourcePack.cpp" />
     <ClCompile Include="zexternals\Include\Glad\glad.c" />
     <ClCompile Include="Engine\Window.cpp" />
     <ClCompile Include="main.cpp" />
@@ -116,13 +119,14 @@
     <ClInclude Include="Engine\Model\Material.hpp" />
     <ClInclude Include="Engine\Model\Mesh.hpp" />
     <ClInclude Include="Engine\Model\Model.hpp" />
+    <ClInclude Include="Engine\Model\Sprite.hpp" />
     <ClInclude Include="Engine\Phys\AABB.hpp" />
     <ClInclude Include="Engine\Phys\boxCollider.hpp" />
     <ClInclude Include="Engine\Phys\Rigidbody.hpp" />
     <ClInclude Include="Engine\ResourcePack.hpp" />
     <ClInclude Include="Engine\shadowMap.hpp" />
     <ClInclude Include="Engine\Model\Texture.hpp" />
-    <ClInclude Include="Engine\Types\3D.hpp" />
+    <ClInclude Include="Engine\Types\Math.hpp" />
     <ClInclude Include="Engine\Types\varTypes.hpp" />
     <ClInclude Include="Engine\Window.hpp" />
     <ClInclude Include="Game\player.hpp" />
@@ -152,6 +156,8 @@
     <None Include="Assets\Shaders\shader.vert" />
     <None Include="Assets\Shaders\Shoder.vert" />
     <None Include="Assets\Shaders\Shoder.frag" />
+    <None Include="Assets\Shaders\sprite.frag" />
+    <None Include="Assets\Shaders\sprite.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

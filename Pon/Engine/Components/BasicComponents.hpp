@@ -1,6 +1,5 @@
 #pragma once
-#include "../Types/varTypes.hpp"
-#include "../Types/3D.hpp"
+#include "../Types/Math.hpp"
 
 struct Transform {
 	Vec3 position{};

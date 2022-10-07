@@ -1,7 +1,6 @@
 #pragma once
-#include "Types\varTypes.hpp"
-#include "Types\3D.hpp"
-#include "Model/Shader.hpp"
+#include "Types\Math.hpp"
+#include "ResourcePack.hpp"
 
 #include <string>
 #include <vector>
@@ -14,7 +13,7 @@
 class DebugMesh {
 public:
 	DebugMesh() {
-		shader = new Shader("Assets/Shaders/debug.vert", "Assets/Shaders/debug.frag");
+		shader = ResourcePack::GetResourcePack()->GetShader("Assets/Shaders/debug.vert", "Assets/Shaders/debug.frag");
 
 		verts = {
 			glm::vec3(-1.0f, -1.0f, 1.0f),
@@ -82,7 +81,7 @@ public:
 
 	void Draw(glm::mat4& proj, glm::mat4& view) {
 		
-		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);//Make a section in engine to draw all the wireframes to not set this in every box
 
 		shader->Bind();
 

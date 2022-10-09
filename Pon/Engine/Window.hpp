@@ -1,20 +1,20 @@
 #pragma once
 
-#include <memory>
-
 class GLFWwindow;
 class Input;
-class Window {
+
+class Window
+{
 public:
 	Window(int width, int height, const char* windowName);
 	~Window();
 
-	
-
-	GLFWwindow* getWindow() { return window; }
-	Input* getInput() { return input; }
-	int getWidth() { return WIDTH; }
-	int getHeight() { return HEIGHT; }
+	GLFWwindow* getWindow()
+	{
+		return window; //For some compile error needs to be in the header
+	}
+	int getWidth();
+	int getHeight();
 private:
 	GLFWwindow* window;
 	Input* input;

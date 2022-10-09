@@ -3,8 +3,14 @@
 class GLFWwindow;
 class Input {
 public:
-	Input(GLFWwindow* window);
-	~Input() {}
+	Input();
+	Input(const Input& other) = delete;
+	Input& operator=(const Input& other) = delete;
+	~Input();
+
+	void SetWindow(GLFWwindow* window);
+
+	static Input* GetInputInstance();
 
 	void processInput();
 
@@ -14,19 +20,13 @@ public:
 	bool GetKey(int key);
 	bool GetMouseButton(int button);
 
-	float getMouseOffsetX() {
-		float tmp = xoffset;
-		xoffset = 0;
-		return tmp;
-	}
-	float getMouseOffsetY() {
-		float tmp = yoffset;
-		yoffset = 0;
-		return tmp;
-	}
+	float getMouseOffsetX();
+	float getMouseOffsetY();
+
 
 private:
 	GLFWwindow* window;
+	static Input* inputInstance;
 
 	static bool firstMouse;
 

@@ -2,6 +2,8 @@
 #include "Shader.hpp"
 #include "../ResourcePack.hpp"
 
+#include <Glad/glad/glad.h>
+
 Sprite::Sprite()
 {
 	shader = ResourcePack::GetResourcePack()->Get2DShader();

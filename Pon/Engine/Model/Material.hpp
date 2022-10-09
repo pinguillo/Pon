@@ -5,30 +5,13 @@
 class Material
 {
 public:
-	Material()
-	{
-		shader = ResourcePack::GetResourcePack()->GetShader("Assets/Shaders/Shoder.vert", "Assets/Shaders/Shoder.frag");
-	}
-	Material(Shader* s) : shader(s) {}
-	~Material() {}
+	Material();
+	Material(Shader* s);
+	~Material();
 
-	void LoadShader(const char* VSpath, const char* FSpath)
-	{
-		shader = ResourcePack::GetResourcePack()->GetShader(VSpath, FSpath);
+	void LoadShader(const char* VSpath, const char* FSpath);
 
-		shader->setInt("material.diffuse", 0);
-		shader->setInt("material.specular", 1);
-		shader->setInt("shadowMap", 2);
-	}
-
-	void LoadShader(Shader* &sh)
-	{
-		shader = sh;
-
-		shader->setInt("material.diffuse", 0);
-		shader->setInt("material.specular", 1);
-		shader->setInt("shadowMap", 2);
-	}
+	void LoadShader(Shader* &sh);
 
 	Shader* shader;
 	ui32 diffuseID = 0;

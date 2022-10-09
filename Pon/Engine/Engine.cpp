@@ -186,5 +186,5 @@ void Engine::KillEngine() {
 void Engine::CreateWindow(int width, int height, const char* windowName) {
 	windowClass = new Window(width, height, windowName);
 	window = windowClass->getWindow();
-	input = windowClass->getInput();
+	input = Input::GetInputInstance();
 }

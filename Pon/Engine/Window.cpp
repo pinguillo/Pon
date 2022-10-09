@@ -9,12 +9,15 @@
 
 #include "Input.hpp"
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
 	glViewport(0, 0, width, height);
 }
 
-Window::Window(int width, int height, const char* windowName) : WIDTH(width), HEIGHT(height){
-	if (glfwInit() != GLFW_TRUE) {
+Window::Window(int width, int height, const char* windowName) : WIDTH(width), HEIGHT(height)
+{
+	if (glfwInit() != GLFW_TRUE)
+	{
 		PIN_ERROR("Failed to init GLFW");
 	}
 
@@ -25,7 +28,8 @@ Window::Window(int width, int height, const char* windowName) : WIDTH(width), HE
 
 	window = glfwCreateWindow(WIDTH, HEIGHT, windowName, nullptr, nullptr);
 
-	if (window == nullptr) {
+	if (window == nullptr)
+	{
 		glfwTerminate();
 		PIN_ERROR("Failed to create window");
 	}
@@ -34,7 +38,8 @@ Window::Window(int width, int height, const char* windowName) : WIDTH(width), HE
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 	
 
-	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+	{
 		PIN_ERROR("Failed to initialize GLAD");
 	}
 
@@ -43,8 +48,23 @@ Window::Window(int width, int height, const char* windowName) : WIDTH(width), HE
 	glEnable(GL_DEPTH_TEST);
 	glFrontFace(GL_CW);
 
-	input = new Input(window);
+	input = Input::GetInputInstance();
+	input->SetWindow(window);
 	glfwSetCursorPosCallback(window, input->mouse_position_callback);
 	glfwSetMouseButtonCallback(window, input->mouse_button_callback);
 	//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+}
+
+Window::~Window()
+{
+}
+
+int Window::getWidth()
+{
+	return WIDTH;
+}
+
+int Window::getHeight()
+{
+	return HEIGHT;
 }

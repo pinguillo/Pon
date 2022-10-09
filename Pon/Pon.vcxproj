@@ -89,11 +89,15 @@
     <ClCompile Include="Engine\Components\MeshedObject.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="Engine\Input.cpp" />
+    <ClCompile Include="Engine\Model\Material.cpp" />
+    <ClCompile Include="Engine\Model\Mesh.cpp" />
     <ClCompile Include="Engine\Model\Model.cpp" />
     <ClCompile Include="Engine\Model\Shader.cpp" />
     <ClCompile Include="Engine\Model\Shader.hpp" />
     <ClCompile Include="Engine\Model\Sprite.cpp" />
     <ClCompile Include="Engine\Model\Texture.cpp" />
+    <ClCompile Include="Engine\Phys\AABB.cpp" />
+    <ClCompile Include="Engine\Phys\boxCollider.cpp" />
     <ClCompile Include="Engine\ResourcePack.cpp" />
     <ClCompile Include="zexternals\Include\Glad\glad.c" />
     <ClCompile Include="Engine\Window.cpp" />
